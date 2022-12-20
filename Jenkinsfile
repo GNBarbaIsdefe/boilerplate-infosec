@@ -12,16 +12,5 @@ pipeline {
       }
     }
 
-    stage('ServerAPP') {
-      steps {
-        sh '''sshagent(credentials: [\'SSHAPP\',\'APPServerPriv\']) {
-            sh\'\'\'
-            cd ~/jenkins-agent/workspace/
-            scp -ro StrictHostKeyChecking=no boilerplate-infosec_main userapp@10.67.33.250:/home/userapp/workspace
-            \'\'\'
-        }'''
-        }
-      }
-
-    }
   }
+}
