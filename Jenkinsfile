@@ -11,7 +11,6 @@ pipeline {
         git(url: 'https://github.com/GNBarbaIsdefe/boilerplate-infosec', branch: 'dev')
       }
     }
-
     stage('ServerAPP') {
       steps {
         sshagent(credentials: ['APPServerPriv']) {
@@ -20,8 +19,8 @@ pipeline {
             scp -ro StrictHostKeyChecking=no boilerplate-infosec_main userapp@10.67.33.250:/home/userapp/workspace
             '''
         }
-        }
       }
-
     }
   }
+}
+
